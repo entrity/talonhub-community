@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Talon (dictation)
+Exec=/opt/talon/run.sh
+Type=Application
+Icon=audio-headset
+StartupNotify=true
+Terminal=false
+Categories=GTK;GNOME;Utility;

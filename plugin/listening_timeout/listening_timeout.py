@@ -5,10 +5,10 @@ from talon import Context, Module, actions, app, cron, settings, speech_system, 
 mod = Module()
 ctx = Context()
 mod.setting(
-    "listening_timeout_minutes",
+    "listening_timeout_seconds",
     int,
     default=-1,
-    desc="After X mintues, disable speech recognition",
+    desc="After X seconds, disable speech recognition",
 )
 mod.setting(
     "listening_timeout_show_notification",
@@ -17,12 +17,24 @@ mod.setting(
     desc="After the timeout expires, display a notification",
 )
 
+def get_microphone_name():
+  return actions.sound.active_microphone() # => str ["None", "System Default"]
+
+def is_microphone_none():
+  return get_microphone_name() == "None"
 
 @mod.action_class
 class UserActions:
     def listening_timeout_expired():
         """Action called when the listening timeout expires"""
         actions.speech.disable()
+        actions.mode.disable("command")
+        actions.mode.disable("dictation")
+        actions.mode.enable("sleep")
+
+        if not is_microphone_none():
+            actions.sound.set_microphone("None")
+            actions.speech.disable()
 
         if settings.get("user.listening_timeout_show_notification"):
             show_notification()
@@ -60,7 +72,7 @@ def stop_timeout_job():
 
 
 def calculate_timeout():
-    return settings.get("user.listening_timeout_minutes") * 60
+    return settings.get("user.listening_timeout_seconds")
 
 
 def check_timeout():
@@ -87,7 +99,7 @@ def post_phrase(e):
 
 def show_notification():
     actions.app.notify(
-        f"Speech recognition disabled - no speech detected for {calculate_timeout()}s"
+        f"Speech recognition disabled - no speech detected for {calculate_timeout()} seconds"
     )
 
 

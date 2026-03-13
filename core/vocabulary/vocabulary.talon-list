@@ -1,73 +1,141 @@
 list: user.vocabulary
 -
-N map: nmap
-under documented: under-documented
-nmap
-admin
-Cisco
-Citrix
-VPN
-DNS
-Minecraft
+HTML
+LLM
+AI
+HDMI
+CI/CD
+CI
+MCP
+Neo
+E2E
 1Password
 2FA
+sDSM
+DSM
 Abhijeet
 ACL
+ACLs: ACL's
+ActiveRecord
+admin
+admins and auth: admins & auth
+Aether
 Aether team
 API
 Arman
+artifactory
+AWS
 Batfish
 BSSID
+Catalyst Center
+Cisco
+Citrix
 CLI
+codebase
+Codefly
 config
 configs
+CSR
+debug
+device config
 diff
+diffed
 Digital Twin
+Dimitry
 ditto
+ditto
+DNS
 E.O.
 Eleni
+end point: endpoint
+end points: endpoints
 enqueue
 enqueued
 enqueuing
 entail
+firmware
+Fito
 gerrit IO: gerrit
 git
+Giulio
+heretofore
+HTTP: http
+HTTPS: https
 iOS
 IOS-XE
+IOS-XE
+IPV four: IPv4
+IPV six: IPv6
 Jenkins
+Jira
+jumphost
+Kane
 Kind regards
 L1
+L2
 L3
 Laaveniya
+liaise
 lift-and-shift
 Markham
 Markham Anderson
+MDM
 Meraki
 MFA
+Minecraft
+monit
+MS
+mTLS
+MVP
+MX
+N map: nmap
 NDM
 NETCONF
+network config
+Nikilesh
+nil
+nmap
+Office of the CTO
+OpenConfig
+OpenSSL
+Outshift
+patchset
+patchset
 Pavan
+PCC background job: PccBackgroundJob
+PCC machine: PccMachine
 PccBackgroundJob
 PccBackgroundJobs
 PccMachine
 PccMachines
+PDFgs
 PoC
 postgres: PostgreSQL
+PR-bot
+PR-tool
 Priyanka
 protobuf
+queue
+R speck: RSpec
 re-enroll
 re-enrolled
 re-enrolling
 Sahil
+Sahil
 Saswat
 sev one: sev-1
 sev two: sev-2
+Simplecov
 Siri
+skep: SCEP
+SM
 Sonika
 Sree
 SSID
+stake patriarch
 Tanmay
 Teamcity
+TMI
 troubleshoot
 troubleshooting
 Ubuntu
@@ -75,28 +143,13 @@ UI
 un-enroll
 un-enrolled
 un-enrolling
+under documented: under-documented
 UX
-Vijay
+vidcast
+VJ: Vijay
+VPN
+Webex
 whether
 whitespace
-diffed
-MX
-MS
-SM
-Aether
-Nikilesh
-Codefly
-PR-bot
-PR-tool
-Simplecov
-Sahil
-Giulio
-vidcast
-patchset
-Office of the CTO
-liaise
-Webex
-Outshift
-network config
-device config
-Jira
+windsurf
+ZMK

@@ -32,6 +32,13 @@ class Actions:
     else:
       _set_sleep_mode()
 
+  def firm_toggle_command_mode():
+    """Toggle between command mode and dictation mode"""
+    if is_microphone_none():
+      _set_command_mode()
+    else:
+      _set_sleep_mode()
+
   def toggle_command_vs_dictation_mode():
     """Toggle between command mode and dictation mode"""
     if not is_mode_command():
@@ -44,7 +51,7 @@ def toggle_on():
   actions.speech.enable()
 
 def _set_command_mode():
-  subprocess.run(["mplayer", "/usr/share/sounds/freedesktop/stereo/message-new-instant.oga"], check=True)
+  play_sound("/usr/share/sounds/freedesktop/stereo/message-new-instant.oga")
   if is_microphone_none():
     toggle_on()
   actions.mode.disable("sleep")
@@ -52,7 +59,7 @@ def _set_command_mode():
   actions.mode.enable("command")
 
 def _set_dictation_mode():
-  subprocess.run(["mplayer", "/usr/share/sounds/freedesktop/stereo/message.oga"], check=True)
+  play_sound("/usr/share/sounds/freedesktop/stereo/message.oga")
   if is_microphone_none():
     toggle_on()
   actions.mode.disable("sleep")
@@ -60,10 +67,13 @@ def _set_dictation_mode():
   actions.mode.enable("dictation")
 
 def _set_sleep_mode():
-  subprocess.run(["mplayer", "/usr/share/sounds/freedesktop/stereo/power-unplug.oga"], check=True)
+  play_sound("/usr/share/sounds/freedesktop/stereo/power-unplug.oga")
   if not is_microphone_none():
     actions.sound.set_microphone("None")
     actions.speech.disable()
   actions.mode.disable("command")
   actions.mode.disable("dictation")
   actions.mode.enable("sleep")
+
+def play_sound(file_path: str):
+  subprocess.Popen(["mplayer", "-volume", "66", file_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
